@@ -17,11 +17,6 @@ import {
   itmSearchLoading,
 } from "../../actions/ItmSeacrActions";
 import {
-  sanbuenaSearchLoadError,
-  sanbuenaSearchLoadSucces,
-  sanbuenaSearchLoading,
-} from "../../actions/SanbuenaSeacrActions";
-import {
   poligrancSearchLoadError,
   poligrancSearchLoadSucces,
   poligrancSearchLoading,
@@ -96,24 +91,6 @@ export const loadItmResults = async (
     })
     .catch((error) => {
       dispatch(itmSearchLoadError(error.data));
-    });
-};
-
-export const loadSanbuenaResults = async (
-  dispatch: Dispatch<AnyAction>,
-  keyword: string
-) => {
-  console.log("llego para la url", keyword);
-  const url = `https://buscbian-backend.up.railway.app/library/sanbuenaventura/${keyword.toLocaleLowerCase()}`;
-  dispatch(sanbuenaSearchLoading());
-  await axios
-    .get<any>(url)
-    .then((results) => {
-      console.log("resultados sanbuena", results.data);
-      dispatch(sanbuenaSearchLoadSucces(results.data));
-    })
-    .catch((error) => {
-      dispatch(sanbuenaSearchLoadError(error.data));
     });
 };
 

@@ -1,11 +1,8 @@
 import {
-  CloseCircleOutlined,
-  HomeOutlined,
   LoadingOutlined,
   SearchOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import { Input } from "antd";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IRootReducer } from "../models/IRootReducer";
@@ -16,14 +13,13 @@ import {
   loadItmResults,
   loadPoliJicResults,
   loadPoligrancResults,
-  loadSanbuenaResults,
   loadUdeAResults,
   loadUnalResults,
 } from "../app/middleware/payloadSearch";
-import Form, { useForm } from "antd/es/form/Form";
+import { Form, Input } from "antd";
+import { useForm } from "antd/es/form/Form";
 import { IStateUdeASearch } from "../models/IStateUdeASearch";
 import { IStateItmSearch } from "../models/IStateItmSearch";
-import { IStateSanbuenaSearch } from "../models/IStateSanbuenaSearch";
 import { IStatePoligrancSearch } from "../models/IStatePoligrancSearch";
 import { IStateCeipaSearch } from "../models/IStateCeipaSearch";
 import { IStateColegiaturaSearch } from "../models/IStateColegiaturaSearch";
@@ -83,12 +79,6 @@ const HomePage: React.FC = () => {
   >((state) => {
     return state.unalResults;
   });
-
-  // const { sanbuenaResults, sanbuenaLoading } = useSelector<IRootReducer, IStateSanbuenaSearch>(
-  //   (state) => {
-  //     return state.sanbuenaResults;
-  //   }
-  // );
 
   const handleKeywordChange = (e: any) => {
     console.log(e.keyword);
@@ -155,10 +145,6 @@ const HomePage: React.FC = () => {
           </Form.Item>
         </Form>
 
-        {/* {(poliLoading || udeaLoading || itmLoading) &&
-        !(poliResults || udeaResults || itmResults) && (
-          <LoadingOutlined className="initial-loading" />
-        )} */}
         {!(
           poliResults ||
           udeaResults ||

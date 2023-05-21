@@ -1,5 +1,3 @@
-import { HomeOutlined, UserOutlined } from "@ant-design/icons";
-
 const Header = () => {
   return (
     <>
