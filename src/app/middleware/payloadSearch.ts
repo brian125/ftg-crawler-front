@@ -48,7 +48,7 @@ export const loadPoliJicResults = async (
 ) => {
   console.log("llego para la url", keyword);
 
-  const url = `http://localhost:3000/library/polijic/${keyword.toLocaleLowerCase()}`;
+  const url = `https://buscbian-backend.up.railway.app/library/polijic/${keyword.toLocaleLowerCase()}`;
   dispatch(poliSearchLoading());
 
   await axios
@@ -68,7 +68,7 @@ export const loadUdeAResults = async (
   keyword: string
 ) => {
   console.log("llego para la url", keyword);
-  const url = `http://localhost:3000/library/udea/${keyword.toLocaleLowerCase()}`;
+  const url = `https://buscbian-backend.up.railway.app/library/udea/${keyword.toLocaleLowerCase()}`;
   dispatch(udeaSearchLoading());
   await axios
     .get<any>(url)
@@ -86,7 +86,7 @@ export const loadItmResults = async (
   keyword: string
 ) => {
   console.log("llego para la url", keyword);
-  const url = `http://localhost:3000/library/itm/${keyword.toLocaleLowerCase()}`;
+  const url = `https://buscbian-backend.up.railway.app/library/itm/${keyword.toLocaleLowerCase()}`;
   dispatch(itmSearchLoading());
   await axios
     .get<any>(url)
@@ -104,7 +104,7 @@ export const loadSanbuenaResults = async (
   keyword: string
 ) => {
   console.log("llego para la url", keyword);
-  const url = `http://localhost:3000/library/sanbuenaventura/${keyword.toLocaleLowerCase()}`;
+  const url = `https://buscbian-backend.up.railway.app/library/sanbuenaventura/${keyword.toLocaleLowerCase()}`;
   dispatch(sanbuenaSearchLoading());
   await axios
     .get<any>(url)
@@ -122,7 +122,7 @@ export const loadPoligrancResults = async (
   keyword: string
 ) => {
   console.log("llego para la url", keyword);
-  const url = `http://localhost:3000/library/poligrancolombiano/${keyword.toLocaleLowerCase()}`;
+  const url = `https://buscbian-backend.up.railway.app/library/poligrancolombiano/${keyword.toLocaleLowerCase()}`;
   dispatch(poligrancSearchLoading());
   await axios
     .get<any>(url)
@@ -140,7 +140,7 @@ export const loadCeipaResults = async (
   keyword: string
 ) => {
   console.log("llego para la url", keyword);
-  const url = `http://localhost:3000/library/ceipa/${keyword.toLocaleLowerCase()}`;
+  const url = `https://buscbian-backend.up.railway.app/library/ceipa/${keyword.toLocaleLowerCase()}`;
   dispatch(ceipaSearchLoading());
   await axios
     .get<any>(url)
@@ -158,7 +158,7 @@ export const loadColegiaturaResults = async (
   keyword: string
 ) => {
   console.log("llego para la url", keyword);
-  const url = `http://localhost:3000/library/colegiatura/${keyword.toLocaleLowerCase()}`;
+  const url = `https://buscbian-backend.up.railway.app/library/colegiatura/${keyword.toLocaleLowerCase()}`;
   dispatch(colegiaturaSearchLoading());
   await axios
     .get<any>(url)
@@ -176,7 +176,7 @@ export const loadUnalResults = async (
   keyword: string
 ) => {
   console.log("llego para la url", keyword);
-  const url = `http://localhost:3000/library/unal/${keyword.toLocaleLowerCase()}`;
+  const url = `https://buscbian-backend.up.railway.app/library/unal/${keyword.toLocaleLowerCase()}`;
   dispatch(unalSearchLoading());
   await axios
     .get<any>(url)
@@ -191,7 +191,7 @@ export const loadUnalResults = async (
 
 export const loadUsers = async () => {
   console.log("llego para la url");
-  const url = "http://localhost:3000/user";
+  const url = "https://buscbian-backend.up.railway.app/user";
   return await axios.get<any>(url).then((results) => {
     return results.data;
   });
