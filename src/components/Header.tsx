@@ -16,7 +16,7 @@ const Header = () => {
             DE <b>ANTIOQUIA</b>
           </p>
         </div>
-        <img className="logo" src="../../public/mesa-logo.png" alt="Logo" />
+        <img className="logo" src="/mesa-logo.png" alt="Logo" />
       </div>
     </>
   );

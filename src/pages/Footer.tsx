@@ -3,7 +3,7 @@ const Footer = () => {
     <div className="footer">
       <div className="text-footer">
         <p>Powered by</p>
-        <img className="footer-img" src="../../public/poli-jic.png" alt="" />
+        <img className="footer-img" src="/poli-jic.png" alt="" />
       </div>
     </div>
   );

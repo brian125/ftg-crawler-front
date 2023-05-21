@@ -166,7 +166,7 @@ const HomePage: React.FC = () => {
             <div>
               <h2> Aún no has realizado una busqueda </h2>
               <img
-                src="../../public/no-search-imgage.png"
+                src="/no-search-imgage.png"
                 className="no-search-img"
               />
             </div>
@@ -190,14 +190,14 @@ const HomePage: React.FC = () => {
               {!poliLoading &&
                 poliResults !== "No hay datos para la busqueda realizada" && (
                   <img
-                    src={`../../public/${poliResults.nameU}.png`}
+                    src={`/${poliResults.nameU}.png`}
                     className="card-img"
                   />
                 )}
               {!poliLoading &&
                 poliResults === "No hay datos para la busqueda realizada" && (
                   <div>
-                    <img src="../../public/poli-jic.png" className="card-img" />
+                    <img src="/poli-jic.png" className="card-img" />
                     <p>{poliResults}</p>
                   </div>
                 )}
@@ -234,14 +234,14 @@ const HomePage: React.FC = () => {
               {!udeaLoading &&
                 udeaResults !== "No hay datos para la busqueda realizada" && (
                   <img
-                    src={`../../public/${udeaResults.nameU}.png`}
+                    src={`/${udeaResults.nameU}.png`}
                     className="card-img"
                   />
                 )}
               {!udeaLoading &&
                 udeaResults === "No hay datos para la busqueda realizada" && (
                   <div>
-                    <img src="../../public/udea.png" className="card-img" />
+                    <img src="/udea.png" className="card-img" />
                     <p>{udeaResults}</p>
                   </div>
                 )}
@@ -278,14 +278,14 @@ const HomePage: React.FC = () => {
               {!itmLoading &&
                 itmResults !== "No hay datos para la busqueda realizada" && (
                   <img
-                    src={`../../public/${itmResults.nameU}.png`}
+                    src={`/${itmResults.nameU}.png`}
                     className="card-img"
                   />
                 )}
               {!itmLoading &&
                 itmResults === "No hay datos para la busqueda realizada" && (
                   <div>
-                    <img src="../../public/itm.png" className="card-img" />
+                    <img src="/itm.png" className="card-img" />
                     <p>{itmResults}</p>
                   </div>
                 )}
@@ -315,7 +315,7 @@ const HomePage: React.FC = () => {
             {!sanbuenaLoading &&
               sanbuenaResults !== "No hay datos para la busqueda realizada" && (
                 <img
-                  src={`../../public/${sanbuenaResults.nameU}.png`}
+                  src={`/${sanbuenaResults.nameU}.png`}
                   className="card-img"
                 />
               )}
@@ -362,7 +362,7 @@ const HomePage: React.FC = () => {
                 poligrancResults !==
                   "No hay datos para la busqueda realizada" && (
                   <img
-                    src={`../../public/${poligrancResults.nameU}.png`}
+                    src={`/${poligrancResults.nameU}.png`}
                     className="card-img"
                   />
                 )}
@@ -371,7 +371,7 @@ const HomePage: React.FC = () => {
                   "No hay datos para la busqueda realizada" && (
                   <div>
                     <img
-                      src="../../public/poli-gran-colombiano.png"
+                      src="/poli-gran-colombiano.png"
                       className="card-img"
                     />
                     <p>{poligrancResults}</p>
@@ -414,14 +414,14 @@ const HomePage: React.FC = () => {
               {!ceipaLoading &&
                 ceipaResults !== "No hay datos para la busqueda realizada" && (
                   <img
-                    src={`../../public/${ceipaResults.nameU}.png`}
+                    src={`/${ceipaResults.nameU}.png`}
                     className="card-img"
                   />
                 )}
               {!ceipaLoading &&
                 ceipaResults === "No hay datos para la busqueda realizada" && (
                   <div>
-                    <img src="../../public/ceipa.png" className="card-img" />
+                    <img src="/ceipa.png" className="card-img" />
                     <p>{ceipaResults}</p>
                   </div>
                 )}
@@ -461,7 +461,7 @@ const HomePage: React.FC = () => {
                 colegiaturaResults !==
                   "No hay datos para la busqueda realizada" && (
                   <img
-                    src={`../../public/${colegiaturaResults.nameU}.png`}
+                    src={`/${colegiaturaResults.nameU}.png`}
                     className="card-img"
                   />
                 )}
@@ -470,7 +470,7 @@ const HomePage: React.FC = () => {
                   "No hay datos para la busqueda realizada" && (
                   <div>
                     <img
-                      src="../../public/colegiatura.png"
+                      src="/colegiatura.png"
                       className="card-img"
                     />
                     <p>{colegiaturaResults}</p>
@@ -513,14 +513,14 @@ const HomePage: React.FC = () => {
               {!unalLoading &&
                 unalResults !== "No hay datos para la busqueda realizada" && (
                   <img
-                    src={`../../public/${unalResults.nameU}.png`}
+                    src={`/${unalResults.nameU}.png`}
                     className="card-img"
                   />
                 )}
               {!unalLoading &&
                 unalResults === "No hay datos para la busqueda realizada" && (
                   <div>
-                    <img src="../../public/unal.png" className="card-img" />
+                    <img src="/unal.png" className="card-img" />
                     <p>{unalResults}</p>
                   </div>
                 )}
