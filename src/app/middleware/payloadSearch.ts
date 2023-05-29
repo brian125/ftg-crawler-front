@@ -36,21 +36,22 @@ import {
   unalSearchLoadSucces,
   unalSearchLoading,
 } from "../../actions/UnalSeacrActions";
+import {
+  hostLoadError,
+  hostLoadSucces,
+  hostLoading,
+} from "../../actions/HostActions ";
 
 export const loadPoliJicResults = async (
   dispatch: Dispatch<AnyAction>,
   keyword: string
 ) => {
-  console.log("llego para la url", keyword);
-
   const url = `https://buscbian-backend.up.railway.app/library/polijic/${keyword.toLocaleLowerCase()}`;
   dispatch(poliSearchLoading());
 
   await axios
     .get<any>(url)
     .then((results) => {
-      console.log("resultados POLI", results.data);
-
       dispatch(poliSearchLoadSucces(results.data));
     })
     .catch((error) => {
@@ -62,13 +63,11 @@ export const loadUdeAResults = async (
   dispatch: Dispatch<AnyAction>,
   keyword: string
 ) => {
-  console.log("llego para la url", keyword);
   const url = `https://buscbian-backend.up.railway.app/library/udea/${keyword.toLocaleLowerCase()}`;
   dispatch(udeaSearchLoading());
   await axios
     .get<any>(url)
     .then((results) => {
-      console.log("resultados UDEA", results.data);
       dispatch(udeaSearchLoadSucces(results.data));
     })
     .catch((error) => {
@@ -80,13 +79,11 @@ export const loadItmResults = async (
   dispatch: Dispatch<AnyAction>,
   keyword: string
 ) => {
-  console.log("llego para la url", keyword);
   const url = `https://buscbian-backend.up.railway.app/library/itm/${keyword.toLocaleLowerCase()}`;
   dispatch(itmSearchLoading());
   await axios
     .get<any>(url)
     .then((results) => {
-      console.log("resultados ITM", results.data);
       dispatch(itmSearchLoadSucces(results.data));
     })
     .catch((error) => {
@@ -98,13 +95,11 @@ export const loadPoligrancResults = async (
   dispatch: Dispatch<AnyAction>,
   keyword: string
 ) => {
-  console.log("llego para la url", keyword);
   const url = `https://buscbian-backend.up.railway.app/library/poligrancolombiano/${keyword.toLocaleLowerCase()}`;
   dispatch(poligrancSearchLoading());
   await axios
     .get<any>(url)
     .then((results) => {
-      console.log("resultados poligranc", results.data);
       dispatch(poligrancSearchLoadSucces(results.data));
     })
     .catch((error) => {
@@ -116,13 +111,11 @@ export const loadCeipaResults = async (
   dispatch: Dispatch<AnyAction>,
   keyword: string
 ) => {
-  console.log("llego para la url", keyword);
   const url = `https://buscbian-backend.up.railway.app/library/ceipa/${keyword.toLocaleLowerCase()}`;
   dispatch(ceipaSearchLoading());
   await axios
     .get<any>(url)
     .then((results) => {
-      console.log("resultados ceipa", results.data);
       dispatch(ceipaSearchLoadSucces(results.data));
     })
     .catch((error) => {
@@ -134,13 +127,11 @@ export const loadColegiaturaResults = async (
   dispatch: Dispatch<AnyAction>,
   keyword: string
 ) => {
-  console.log("llego para la url", keyword);
   const url = `https://buscbian-backend.up.railway.app/library/colegiatura/${keyword.toLocaleLowerCase()}`;
   dispatch(colegiaturaSearchLoading());
   await axios
     .get<any>(url)
     .then((results) => {
-      console.log("resultados colegiatura", results.data);
       dispatch(colegiaturaSearchLoadSucces(results.data));
     })
     .catch((error) => {
@@ -152,13 +143,11 @@ export const loadUnalResults = async (
   dispatch: Dispatch<AnyAction>,
   keyword: string
 ) => {
-  console.log("llego para la url", keyword);
   const url = `https://buscbian-backend.up.railway.app/library/unal/${keyword.toLocaleLowerCase()}`;
   dispatch(unalSearchLoading());
   await axios
     .get<any>(url)
     .then((results) => {
-      console.log("resultados unal", results.data);
       dispatch(unalSearchLoadSucces(results.data));
     })
     .catch((error) => {
@@ -167,9 +156,29 @@ export const loadUnalResults = async (
 };
 
 export const loadUsers = async () => {
-  console.log("llego para la url");
   const url = "https://buscbian-backend.up.railway.app/user";
   return await axios.get<any>(url).then((results) => {
     return results.data;
   });
+};
+
+export const loadHostUrls = async (dispatch: Dispatch<AnyAction>) => {
+  const url = "https://buscbian-backend.up.railway.app/host";
+  dispatch(hostLoading());
+  await axios
+    .get<any>(url)
+    .then((results) => {
+      dispatch(hostLoadSucces(results.data));
+    })
+    .catch((error) => {
+      dispatch(hostLoadError(error.data));
+    });
+};
+
+export const updateHostUrls = async (newHost: Object, id: string) => {
+  const url = `https://buscbian-backend.up.railway.app/host/${id}`;
+  await axios
+    .put<any>(url, newHost)
+    .then((res) => res.data)
+    .catch((error) => console.log(error));
 };

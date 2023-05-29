@@ -7,7 +7,7 @@ const Header = () => {
         </div>
         <div className="general-description">
           <p>
-            SISTEMA DE <b>BUSQUEDA</b>
+            SISTEMA DE <b>BÚSQUEDA</b>
           </p>
           <p>
             DE <b>CATÁLOGOS</b> EN <b>BIBLIOTECAS</b>

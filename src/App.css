@@ -4,7 +4,7 @@
 }
 
 .general-container {
-  min-height: calc(100vh - 74px);
+  min-height: calc(100vh - 114px);
   background-color: #f2f2f2;
 }
 
@@ -69,6 +69,10 @@ body {
   padding: 30px;
   text-align: center;
   color: #336691;
+}
+
+:where(.css-dev-only-do-not-override-ed5zg0).ant-input-group .ant-input-group-addon {
+  padding: 0;
 }
 
 .no-search-img {
@@ -193,6 +197,11 @@ body {
   margin-top: 20px;
 }
 
+.admin-title {
+  text-align: center;
+  color: #336691;
+}
+
 .urls {
   display: flex;
   justify-content: space-between;
@@ -227,6 +236,13 @@ body {
   background-color: #336691;
 }
 
+.btn-edit-urls {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
 .footer {
   display: flex;
   justify-content: center;
@@ -234,7 +250,7 @@ body {
   align-items: center;
   background-color: #ffffff;
   color: #336691;
-  height: 70px;
+  height: 110px;
   border-top: 4px solid #336691;
 }
 

@@ -1,0 +1,5 @@
+export enum HostActionType {
+    HOST_LOADING = "HOST_LOADING",
+    HOST_LOAD_SUCCESS = "HOST_LOAD_SUCCESS",
+    HOST_LOAD_FAILURE = "HOST_LOAD_FAILURE",
+  }

@@ -8,4 +8,5 @@ export interface IRootReducer {
   colegiaturaResults: any;
   unalResults: any;
   loginResults: any;
+  hostResults: any
 }

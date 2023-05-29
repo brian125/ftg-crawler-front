@@ -16,7 +16,6 @@ const LibraryPage: React.FC<IPropsNav> = ({ data }) => {
       state.poliResults.poliResults &&
       data.key === state.poliResults.poliResults.nameU
     ) {
-      console.log("SATATE NAME U", state.poliResults.poliResults);
       return state.poliResults.poliResults;
     }
     if (

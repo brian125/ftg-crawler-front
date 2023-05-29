@@ -16,7 +16,7 @@ import {
   loadUdeAResults,
   loadUnalResults,
 } from "../app/middleware/payloadSearch";
-import { Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import { useForm } from "antd/es/form/Form";
 import { IStateUdeASearch } from "../models/IStateUdeASearch";
 import { IStateItmSearch } from "../models/IStateItmSearch";
@@ -81,13 +81,11 @@ const HomePage: React.FC = () => {
   });
 
   const handleKeywordChange = (e: any) => {
-    console.log(e.keyword);
     setKeyword(e.keyword);
     form.resetFields();
   };
 
   useEffect(() => {
-    console.log("Entra cada que hay cambio o no?", keyword);
     if (keyword !== "") {
       loadPoliJicResults(dispatch, keyword);
       loadUdeAResults(dispatch, keyword);
@@ -130,7 +128,11 @@ const HomePage: React.FC = () => {
           >
             <Input
               style={{ width: "50%" }}
-              addonAfter={<SearchOutlined />}
+              addonAfter={
+                <Button htmlType="submit">
+                  <SearchOutlined />
+                </Button>
+              }
               placeholder="Consultar..."
               disabled={
                 poliLoading ||
@@ -164,11 +166,8 @@ const HomePage: React.FC = () => {
             unalLoading
           ) && (
             <div>
-              <h2> Aún no has realizado una busqueda </h2>
-              <img
-                src="/no-search-imgage.png"
-                className="no-search-img"
-              />
+              <h2> Aún no has realizado una búsqueda </h2>
+              <img src="/no-search-imgage.png" className="no-search-img" />
             </div>
           )}
 
@@ -180,7 +179,7 @@ const HomePage: React.FC = () => {
           {poliResults && (
             <Link
               to={
-                poliResults !== "No hay datos para la busqueda realizada"
+                poliResults !== "No hay datos para la búsqueda realizada"
                   ? "poli-jic"
                   : "/"
               }
@@ -188,14 +187,11 @@ const HomePage: React.FC = () => {
             >
               {poliLoading && <LoadingOutlined className="loading" />}
               {!poliLoading &&
-                poliResults !== "No hay datos para la busqueda realizada" && (
-                  <img
-                    src={`/${poliResults.nameU}.png`}
-                    className="card-img"
-                  />
+                poliResults !== "No hay datos para la búsqueda realizada" && (
+                  <img src={`/${poliResults.nameU}.png`} className="card-img" />
                 )}
               {!poliLoading &&
-                poliResults === "No hay datos para la busqueda realizada" && (
+                poliResults === "No hay datos para la búsqueda realizada" && (
                   <div>
                     <img src="/poli-jic.png" className="card-img" />
                     <p>{poliResults}</p>
@@ -224,7 +220,7 @@ const HomePage: React.FC = () => {
           {udeaResults && (
             <Link
               to={
-                udeaResults !== "No hay datos para la busqueda realizada"
+                udeaResults !== "No hay datos para la búsqueda realizada"
                   ? "udea"
                   : "/"
               }
@@ -232,14 +228,11 @@ const HomePage: React.FC = () => {
             >
               {udeaLoading && <LoadingOutlined className="loading" />}
               {!udeaLoading &&
-                udeaResults !== "No hay datos para la busqueda realizada" && (
-                  <img
-                    src={`/${udeaResults.nameU}.png`}
-                    className="card-img"
-                  />
+                udeaResults !== "No hay datos para la búsqueda realizada" && (
+                  <img src={`/${udeaResults.nameU}.png`} className="card-img" />
                 )}
               {!udeaLoading &&
-                udeaResults === "No hay datos para la busqueda realizada" && (
+                udeaResults === "No hay datos para la búsqueda realizada" && (
                   <div>
                     <img src="/udea.png" className="card-img" />
                     <p>{udeaResults}</p>
@@ -268,7 +261,7 @@ const HomePage: React.FC = () => {
           {itmResults && (
             <Link
               to={
-                itmResults !== "No hay datos para la busqueda realizada"
+                itmResults !== "No hay datos para la búsqueda realizada"
                   ? "itm"
                   : "/"
               }
@@ -276,14 +269,11 @@ const HomePage: React.FC = () => {
             >
               {itmLoading && <LoadingOutlined className="loading" />}
               {!itmLoading &&
-                itmResults !== "No hay datos para la busqueda realizada" && (
-                  <img
-                    src={`/${itmResults.nameU}.png`}
-                    className="card-img"
-                  />
+                itmResults !== "No hay datos para la búsqueda realizada" && (
+                  <img src={`/${itmResults.nameU}.png`} className="card-img" />
                 )}
               {!itmLoading &&
-                itmResults === "No hay datos para la busqueda realizada" && (
+                itmResults === "No hay datos para la búsqueda realizada" && (
                   <div>
                     <img src="/itm.png" className="card-img" />
                     <p>{itmResults}</p>
@@ -313,14 +303,14 @@ const HomePage: React.FC = () => {
           <div className="card-container">
             {sanbuenaLoading && <LoadingOutlined className="loading" />}
             {!sanbuenaLoading &&
-              sanbuenaResults !== "No hay datos para la busqueda realizada" && (
+              sanbuenaResults !== "No hay datos para la búsqueda realizada" && (
                 <img
                   src={`/${sanbuenaResults.nameU}.png`}
                   className="card-img"
                 />
               )}
             {!sanbuenaLoading &&
-              sanbuenaResults === "No hay datos para la busqueda realizada" && (
+              sanbuenaResults === "No hay datos para la búsqueda realizada" && (
                 <div>
                   <CloseCircleOutlined className="loading" />
                   <p>{sanbuenaResults}</p>
@@ -351,7 +341,7 @@ const HomePage: React.FC = () => {
           {poligrancResults && (
             <Link
               to={
-                poligrancResults !== "No hay datos para la busqueda realizada"
+                poligrancResults !== "No hay datos para la búsqueda realizada"
                   ? "poli-gc"
                   : "/"
               }
@@ -360,7 +350,7 @@ const HomePage: React.FC = () => {
               {poligrancLoading && <LoadingOutlined className="loading" />}
               {!poligrancLoading &&
                 poligrancResults !==
-                  "No hay datos para la busqueda realizada" && (
+                  "No hay datos para la búsqueda realizada" && (
                   <img
                     src={`/${poligrancResults.nameU}.png`}
                     className="card-img"
@@ -368,12 +358,9 @@ const HomePage: React.FC = () => {
                 )}
               {!poligrancLoading &&
                 poligrancResults ===
-                  "No hay datos para la busqueda realizada" && (
+                  "No hay datos para la búsqueda realizada" && (
                   <div>
-                    <img
-                      src="/poli-gran-colombiano.png"
-                      className="card-img"
-                    />
+                    <img src="/poli-gran-colombiano.png" className="card-img" />
                     <p>{poligrancResults}</p>
                   </div>
                 )}
@@ -404,7 +391,7 @@ const HomePage: React.FC = () => {
           {ceipaResults && (
             <Link
               to={
-                ceipaResults !== "No hay datos para la busqueda realizada"
+                ceipaResults !== "No hay datos para la búsqueda realizada"
                   ? "ceipa"
                   : "/"
               }
@@ -412,14 +399,14 @@ const HomePage: React.FC = () => {
             >
               {ceipaLoading && <LoadingOutlined className="loading" />}
               {!ceipaLoading &&
-                ceipaResults !== "No hay datos para la busqueda realizada" && (
+                ceipaResults !== "No hay datos para la búsqueda realizada" && (
                   <img
                     src={`/${ceipaResults.nameU}.png`}
                     className="card-img"
                   />
                 )}
               {!ceipaLoading &&
-                ceipaResults === "No hay datos para la busqueda realizada" && (
+                ceipaResults === "No hay datos para la búsqueda realizada" && (
                   <div>
                     <img src="/ceipa.png" className="card-img" />
                     <p>{ceipaResults}</p>
@@ -450,7 +437,7 @@ const HomePage: React.FC = () => {
           {colegiaturaResults && (
             <Link
               to={
-                colegiaturaResults !== "No hay datos para la busqueda realizada"
+                colegiaturaResults !== "No hay datos para la búsqueda realizada"
                   ? "colegiatura"
                   : "/"
               }
@@ -459,7 +446,7 @@ const HomePage: React.FC = () => {
               {colegiaturaLoading && <LoadingOutlined className="loading" />}
               {!colegiaturaLoading &&
                 colegiaturaResults !==
-                  "No hay datos para la busqueda realizada" && (
+                  "No hay datos para la búsqueda realizada" && (
                   <img
                     src={`/${colegiaturaResults.nameU}.png`}
                     className="card-img"
@@ -467,12 +454,9 @@ const HomePage: React.FC = () => {
                 )}
               {!colegiaturaLoading &&
                 colegiaturaResults ===
-                  "No hay datos para la busqueda realizada" && (
+                  "No hay datos para la búsqueda realizada" && (
                   <div>
-                    <img
-                      src="/colegiatura.png"
-                      className="card-img"
-                    />
+                    <img src="/colegiatura.png" className="card-img" />
                     <p>{colegiaturaResults}</p>
                   </div>
                 )}
@@ -503,7 +487,7 @@ const HomePage: React.FC = () => {
           {unalResults && (
             <Link
               to={
-                poliResults !== "No hay datos para la busqueda realizada"
+                poliResults !== "No hay datos para la búsqueda realizada"
                   ? "unal"
                   : "/"
               }
@@ -511,14 +495,11 @@ const HomePage: React.FC = () => {
             >
               {unalLoading && <LoadingOutlined className="loading" />}
               {!unalLoading &&
-                unalResults !== "No hay datos para la busqueda realizada" && (
-                  <img
-                    src={`/${unalResults.nameU}.png`}
-                    className="card-img"
-                  />
+                unalResults !== "No hay datos para la búsqueda realizada" && (
+                  <img src={`/${unalResults.nameU}.png`} className="card-img" />
                 )}
               {!unalLoading &&
-                unalResults === "No hay datos para la busqueda realizada" && (
+                unalResults === "No hay datos para la búsqueda realizada" && (
                   <div>
                     <img src="/unal.png" className="card-img" />
                     <p>{unalResults}</p>
