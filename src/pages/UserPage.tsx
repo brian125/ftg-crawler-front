@@ -14,7 +14,6 @@ import { IUserLogin } from "../models/IUserLogin";
 import { IRootReducer } from "../models/IRootReducer";
 import { ILogin } from "../models/ILogin ";
 import { IHost } from "../models/IHost";
-import { forEach } from "@angular/router/src/utils/collection";
 
 const UserPage: React.FC = () => {
   const initialLogin: IUserLogin = {
