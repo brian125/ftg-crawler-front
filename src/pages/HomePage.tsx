@@ -13,6 +13,7 @@ import {
   loadItmResults,
   loadPoliJicResults,
   loadPoligrancResults,
+  loadSanbuenaResults,
   loadUdeAResults,
   loadUnalResults,
 } from "../app/middleware/payloadSearch";
@@ -25,6 +26,7 @@ import { IStateCeipaSearch } from "../models/IStateCeipaSearch";
 import { IStateColegiaturaSearch } from "../models/IStateColegiaturaSearch";
 import { IStateUnalSearch } from "../models/IStateUnalSearch";
 import { Link } from "react-router-dom";
+import { IStateSanbuenaSearch } from "../models/IStateSanbuenaSearch ";
 
 const HomePage: React.FC = () => {
   const [keyword, setKeyword] = useState("");
@@ -80,6 +82,13 @@ const HomePage: React.FC = () => {
     return state.unalResults;
   });
 
+  const { sanbuenaResults, sanbuenaLoading } = useSelector<
+    IRootReducer,
+    IStateSanbuenaSearch
+  >((state) => {
+    return state.sanbuenaResults;
+  });
+
   const handleKeywordChange = (e: any) => {
     setKeyword(e.keyword);
     form.resetFields();
@@ -90,11 +99,11 @@ const HomePage: React.FC = () => {
       loadPoliJicResults(dispatch, keyword);
       loadUdeAResults(dispatch, keyword);
       loadItmResults(dispatch, keyword);
-      // loadSanbuenaResults(dispatch, keyword);
       loadPoligrancResults(dispatch, keyword);
       loadCeipaResults(dispatch, keyword);
       loadColegiaturaResults(dispatch, keyword);
       loadUnalResults(dispatch, keyword);
+      loadSanbuenaResults(dispatch, keyword);
     }
   }, [keyword]);
 
@@ -104,9 +113,11 @@ const HomePage: React.FC = () => {
 
   return (
     <>
-      <Link to="users" className="nav">
-        <UserOutlined className="nav-icons" />
-      </Link>
+      <div className="nav">
+        <Link to="users" >
+          <UserOutlined className="nav-icons" />
+        </Link>
+      </div>
       <div className="home-container">
         <h1>Buscar recurso</h1>
         <br />
@@ -141,7 +152,8 @@ const HomePage: React.FC = () => {
                 poligrancLoading ||
                 ceipaLoading ||
                 colegiaturaLoading ||
-                unalLoading
+                unalLoading ||
+                sanbuenaLoading
               }
             />
           </Form.Item>
@@ -154,7 +166,8 @@ const HomePage: React.FC = () => {
           poligrancResults ||
           ceipaResults ||
           colegiaturaResults ||
-          unalResults
+          unalResults ||
+          sanbuenaResults
         ) &&
           !(
             poliLoading ||
@@ -163,7 +176,8 @@ const HomePage: React.FC = () => {
             poliLoading ||
             ceipaLoading ||
             colegiaturaLoading ||
-            unalLoading
+            unalLoading ||
+            sanbuenaLoading
           ) && (
             <div>
               <h2> Aún no has realizado una búsqueda </h2>
@@ -294,45 +308,6 @@ const HomePage: React.FC = () => {
               </div>
             </Link>
           )}
-
-          {/* Cards SanBuena
-        {sanbuenaLoading && !sanbuenaResults && (
-          <LoadingOutlined className="initial-loading" />
-        )}
-        {sanbuenaResults && (
-          <div className="card-container">
-            {sanbuenaLoading && <LoadingOutlined className="loading" />}
-            {!sanbuenaLoading &&
-              sanbuenaResults !== "No hay datos para la búsqueda realizada" && (
-                <img
-                  src={`/${sanbuenaResults.nameU}.png`}
-                  className="card-img"
-                />
-              )}
-            {!sanbuenaLoading &&
-              sanbuenaResults === "No hay datos para la búsqueda realizada" && (
-                <div>
-                  <CloseCircleOutlined className="loading" />
-                  <p>{sanbuenaResults}</p>
-                </div>
-              )}
-            <div className="card-description">
-              {sanbuenaLoading && (
-                <p>
-                  Recursos Encontrados: <b>0</b>
-                </p>
-              )}
-              {!sanbuenaLoading && (
-                <p>
-                  Recursos Encontrados:{" "}
-                  <b>
-                    {sanbuenaResults.records ? sanbuenaResults.totalRecords : 0}
-                  </b>
-                </p>
-              )}
-            </div>
-          </div>
-        )} */}
 
           {/* Cards Poli-gran-colombiano*/}
           {poligrancLoading && !poligrancResults && (
@@ -516,6 +491,56 @@ const HomePage: React.FC = () => {
                     Recursos Encontrados:{" "}
                     <b>
                       {unalResults.records ? unalResults.records.length : 0}
+                    </b>
+                  </p>
+                )}
+              </div>
+            </Link>
+          )}
+
+          {/* Cards Sanbuenaventura*/}
+          {sanbuenaLoading && !sanbuenaResults && (
+            <LoadingOutlined className="initial-loading" />
+          )}
+          {sanbuenaResults && (
+            <Link
+              to={
+                sanbuenaResults !== "No hay datos para la búsqueda realizada"
+                  ? "sanbuenaventura"
+                  : "/"
+              }
+              className="card-container"
+            >
+              {sanbuenaLoading && <LoadingOutlined className="loading" />}
+              {!sanbuenaLoading &&
+                sanbuenaResults !==
+                  "No hay datos para la búsqueda realizada" && (
+                  <img
+                    src={`/${sanbuenaResults.nameU}.png`}
+                    className="card-img"
+                  />
+                )}
+              {!sanbuenaLoading &&
+                sanbuenaResults ===
+                  "No hay datos para la búsqueda realizada" && (
+                  <div>
+                    <img src="/sanbuenaventura.png" className="card-img" />
+                    <p>{sanbuenaResults}</p>
+                  </div>
+                )}
+              <div className="card-description">
+                {sanbuenaLoading && (
+                  <p>
+                    Recursos Encontrados: <b>0</b>
+                  </p>
+                )}
+                {!sanbuenaLoading && (
+                  <p>
+                    Recursos Encontrados:{" "}
+                    <b>
+                      {sanbuenaResults.records
+                        ? sanbuenaResults.totalRecords
+                        : 0}
                     </b>
                   </p>
                 )}

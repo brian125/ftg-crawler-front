@@ -41,6 +41,11 @@ import {
   hostLoadSucces,
   hostLoading,
 } from "../../actions/HostActions ";
+import {
+  sanbuenaSearchLoadError,
+  sanbuenaSearchLoadSucces,
+  sanbuenaSearchLoading,
+} from "../../actions/SanbuenaSeacrActions";
 
 export const loadPoliJicResults = async (
   dispatch: Dispatch<AnyAction>,
@@ -152,6 +157,22 @@ export const loadUnalResults = async (
     })
     .catch((error) => {
       dispatch(unalSearchLoadError(error.data));
+    });
+};
+
+export const loadSanbuenaResults = async (
+  dispatch: Dispatch<AnyAction>,
+  keyword: string
+) => {
+  const url = `https://buscbian-backend.up.railway.app/library/sanbuenaventura/${keyword.toLocaleLowerCase()}`;
+  dispatch(sanbuenaSearchLoading());
+  await axios
+    .get<any>(url)
+    .then((results) => {
+      dispatch(sanbuenaSearchLoadSucces(results.data));
+    })
+    .catch((error) => {
+      dispatch(sanbuenaSearchLoadError(error.data));
     });
 };
 

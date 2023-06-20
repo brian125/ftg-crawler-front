@@ -54,6 +54,12 @@ const LibraryPage: React.FC<IPropsNav> = ({ data }) => {
     ) {
       return state.unalResults.unalResults;
     }
+    if (
+      state.sanbuenaResults.sanbuenaResults &&
+      data.key === state.sanbuenaResults.sanbuenaResults.nameU
+    ) {
+      return state.sanbuenaResults.sanbuenaResults;
+    }
   });
 
   const columns: ColumnsType<any> = [

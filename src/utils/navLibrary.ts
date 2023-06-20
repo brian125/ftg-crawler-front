@@ -56,4 +56,10 @@ export const nav: INav[] = [
     img: "/unal.png",
     url: "/unal",
   },
+  {
+    titulo: "Universidad de San Buenaventura",
+    key: "sanbuenaventura",
+    img: "/sanbuenaventura.png",
+    url: "/sanbuenaventura",
+  },
 ];

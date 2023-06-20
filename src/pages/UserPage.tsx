@@ -29,6 +29,8 @@ const UserPage: React.FC = () => {
   const [ceipaUrl, setCeipaUrl] = useState("");
   const [colegiaturaUrl, setColegiaturaUrl] = useState("");
   const [unalUrl, setUnalUrl] = useState("");
+  const [sanbuenaUrl, setSanbuenaUrl] = useState("");
+
 
   const dispatch = useDispatch();
 
@@ -89,6 +91,9 @@ const UserPage: React.FC = () => {
         if (host.universityName === "Universidad Nacional de Colombia") {
           setUnalUrl(host.hostUrl);
         }
+        if (host.universityName === "Universidad de San Buenaventura") {
+          setSanbuenaUrl(host.hostUrl);
+        }
       });
     }
   }, [hostResults]);
@@ -145,6 +150,13 @@ const UserPage: React.FC = () => {
         ) {
           updateHostUrls({ hostUrl: e["unal-host"] }, host._id);
           host.hostUrl = e["unal-host"];
+        }
+        if (
+          e["sanbuena-host"] &&
+          host.universityName === "Universidad de San Buenaventura"
+        ) {
+          updateHostUrls({ hostUrl: e["sanbuena-host"] }, host._id);
+          host.hostUrl = e["sanbuena-host"];
         }
       });
     }
@@ -239,10 +251,20 @@ const UserPage: React.FC = () => {
                 label="Universidad Nacional de Colombia"
                 name="unal-host"
                 preserve
-                style={{ marginBottom: 0 }}
               >
                 <Input
                   defaultValue={unalUrl}
+                  placeholder="Correo del usuario"
+                />
+              </Form.Item>
+              <Form.Item
+                label="Universidad de San Buenaventura"
+                name="sanbuena-host"
+                preserve
+                style={{ marginBottom: 0 }}
+              >
+                <Input
+                  defaultValue={sanbuenaUrl}
                   placeholder="Correo del usuario"
                 />
               </Form.Item>

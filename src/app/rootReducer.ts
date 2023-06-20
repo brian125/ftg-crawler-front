@@ -8,6 +8,7 @@ import ColegiaturaSearchReducer from "../reducers/ColegiaturaSearchReducer";
 import UnalSearchReducer from "../reducers/UnalSearchReducer";
 import LoginReducer from "../reducers/LoginReducer";
 import HostReducer from "../reducers/LoginReducer copy";
+import SanbuenaSearchReducer from "../reducers/SanbuenaSearchReducer";
 
 const rootReducer = () => {
   return combineReducers({
@@ -18,6 +19,7 @@ const rootReducer = () => {
     ceipaResults: CeipaSearchReducer,
     colegiaturaResults: ColegiaturaSearchReducer,
     unalResults: UnalSearchReducer,
+    sanbuenaResults: SanbuenaSearchReducer,
     loginResults: LoginReducer,
     hostResults: HostReducer
   });
